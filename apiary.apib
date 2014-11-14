@@ -1,0 +1,3976 @@
+FORMAT: 1A
+HOST: http://api.steadyserv.net/v2
+
+# iKeg 2.0 API
+
+
+# Group Lists
+Get lists for a location **iKeg API**
+
+## List Collection [/franchise/{franchiseId}/location/{locationId}/list]
+
+### Get lists for a location [GET]
+
++ Parameters
+    + franchiseId (required, number, `1`) ... Numeric `id` of the franchise.
+    + locationId (required, number, `1`) ... Numeric `id` of the location.
+    
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {
+                "pageNumber": 1,
+                "pageSize": 50,
+                "totalResults": 5,
+                "totalPages": 1,
+                "results": [
+                    {
+                        "id": 1,
+                        "name": "Aprils Private List",
+                        "description": "This is my list",
+                        "access": "private",
+                        "createdByUser": {
+                            "id": 102102,
+                            "firstName": "iOS",
+                            "lastName": "Admin",
+                            "emailAddress": "iosadmin@steadyserv.net"
+                        },
+                        "createTimestamp": 1411738610,
+                        "updateTimestamp": 0
+                    },
+                    {
+                        "id": 2,
+                        "name": "March Distributor Order",
+                        "description": "",
+                        "access": "locationView",
+                        "createdByUser": {
+                            "id": 102102,
+                            "firstName": "iOS",
+                            "lastName": "Admin",
+                            "emailAddress": "iosadmin@steadyserv.net"
+                        },
+                        "createTimestamp": 1411736610,
+                        "updateTimestamp": 0
+                    },
+                    {
+                        "id": 3,
+                        "name": "Beers for Oktoberfest",
+                        "description": "I want to put these on for Oktoberfest",
+                        "access": "locationEdit",
+                        "createdByUser": {
+                            "id": 102102,
+                            "firstName": "iOS",
+                            "lastName": "Admin",
+                            "emailAddress": "iosadmin@steadyserv.net"
+                        },
+                        "createTimestamp": 1411726610,
+                        "updateTimestamp": 0
+                    },    
+                    {
+                        "id": 4,
+                        "name": "Beers for Spring",
+                        "description": "Spring Beers",
+                        "access": "locationEdit",
+                        "createdByUser": {
+                            "id": 102379,
+                            "firstName": "Shaun",
+                            "lastName": "Pants",
+                            "emailAddress": "shaun123@steadyserv.net"
+                        },
+                        "createTimestamp": 1411735610,
+                        "updateTimestamp": 0
+                    },     
+                    {
+                        "id": 5,
+                        "name": "Walken Distributing List for March",
+                        "description": "",
+                        "access": "locationView",
+                        "createdByUser": {
+                            "id": 102379,
+                            "firstName": "Shaun",
+                            "lastName": "Pants",
+                            "emailAddress": "shaun123@steadyserv.net"
+                        },
+                        "createTimestamp": 1411725610,
+                        "updateTimestamp": 0
+                    }                
+                ]
+            }
+        }
+        
+### Create a list [POST]
+
++ Parameters
+    + franchiseId (required, number, `1`) ... Numeric `id` of the franchise.
+    + locationId (required, number, `1`) ... Numeric `id` of the location.
+    
++ Request (application/json)
+
+        {
+            "name": "My New List",
+            "description": "On something cool!",
+            "access": "private"
+        } 
+        
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {
+                "id": 6
+            }
+        }    
+        
+## Specific List [/franchise/{franchiseId}/location/{locationId}/list/{listId}]
+
+### Get a list [GET]
+
++ Parameters
+    + franchiseId (required, number, `1`) ... Numeric `id` of the franchise.
+    + locationId (required, number, `1`) ... Numeric `id` of the location.
+    + listId (required, number, `1`) ... Numeric `id` of the list.
+    
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {
+                "id": 1,
+                "name": "Aprils Private List",
+                "description": "This is my list",
+                "access": "private",
+                "createdByUser": {
+                    "id": 102102,
+                    "firstName": "iOS",
+                    "lastName": "Admin",
+                    "emailAddress": "iosadmin@steadyserv.net"
+                },
+                "createTimestamp": 1411738610,
+                "updateTimestamp": 0
+            }
+        }        
+        
+### Replace a list [PUT]
+
++ Parameters
+    + franchiseId (required, number, `1`) ... Numeric `id` of the franchise.
+    + locationId (required, number, `1`) ... Numeric `id` of the location.
+    + listId (required, number, `1`) ... Numeric `id` of the list.
+
++ Request (application/json)
+
+        {
+            "name": "My New List",
+            "description": "On something cool!",
+            "access": "private"
+        } 
+        
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {}
+        }           
+        
+### Update parts of a list [PATCH]
+
++ Parameters
+    + franchiseId (required, number, `1`) ... Numeric `id` of the franchise.
+    + locationId (required, number, `1`) ... Numeric `id` of the location.
+    + listId (required, number, `1`) ... Numeric `id` of the list.
+
++ Request (application/json)
+
+        {
+            "name": "My New List",
+            "description": "On something cool!",
+            "access": "private"
+        } 
+        
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {}
+        }     
+        
+### Deletes a list [DELETE]
+
++ Parameters
+    + franchiseId (required, number, `1`) ... Numeric `id` of the franchise.
+    + locationId (required, number, `1`) ... Numeric `id` of the location.
+    + listId (required, number, `1`) ... Numeric `id` of the list.
+        
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {}
+        }
+        
+        
+# Group List Items
+Get items for a list **iKeg API**
+
+## List Item Collection [/franchise/{franchiseId}/location/{locationId}/list/{listId}/item]
+
+### Items for a list [GET]
+
++ Parameters
+    + franchiseId (required, number, `1`) ... Numeric `id` of the franchise.
+    + locationId (required, number, `1`) ... Numeric `id` of the location.
+    + listId (required, number, `1`) ... Numeric `id` of the list.
+    
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {
+                "pageNumber": 1,
+                "pageSize": 50,
+                "totalResults": 5,
+                "totalPages": 1,
+                "results": [
+                    {
+                        "id": 1,
+                        "product": {
+                            "id": "RVOBIF",
+                            "name": "Flower Power",
+                            "style": {
+                                "id": 30,
+                                "name": "American-Style India Pale Ale"
+                            },
+                            "breweries": [
+                                {
+                                    "id": "iGWHI1",
+                                    "name": "Ithaca Beer Co."
+                                }
+                            ]
+                        },
+                        "notes": "get this bad boy",
+                        "createdByUser": {
+                            "id": 102102,
+                            "firstName": "iOS",
+                            "lastName": "Admin",
+                            "emailAddress": "iosadmin@steadyserv.net"
+                        },
+                        "lastUpdatedByUser": {
+                            "id": 102102,
+                            "firstName": "iOS",
+                            "lastName": "Admin",
+                            "emailAddress": "iosadmin@steadyserv.net"
+                        },
+                        "createTimestamp": 1411738610,
+                        "updateTimestamp": 1411738610
+                    },
+                    {
+                        "id": 2,
+                        "product": {
+                            "id": "dimtrs",
+                            "name": "Bud Light",
+                            "style": {
+                                "id": 94,
+                                "name": "American-Style Light (Low Calorie) Lager"
+                            },
+                            "breweries": [
+                                {
+                                    "id": "BznahA",
+                                    "name": "Anheuser-Busch InBev"
+                                }
+                            ]
+                        },
+                        "notes": "maybe this one",
+                        "createdByUser": {
+                            "id": 102102,
+                            "firstName": "iOS",
+                            "lastName": "Admin",
+                            "emailAddress": "iosadmin@steadyserv.net"
+                        },
+                        "lastUpdatedByUser": {
+                            "id": 102379,
+                            "firstName": "Shaun",
+                            "lastName": "Pants",
+                            "emailAddress": "shaun123@steadyserv.net"
+                        },
+                        "createTimestamp": 1411738610,
+                        "updateTimestamp": 1411739610
+                    }                    
+                ]
+            }
+        }
+        
+### Add an item to a list [POST]
+
++ Parameters
+    + franchiseId (required, number, `1`) ... Numeric `id` of the franchise.
+    + locationId (required, number, `1`) ... Numeric `id` of the location.
+    + listId (required, number, `1`) ... Numeric `id` of the list.
+    
++ Request (application/json)
+
+        {
+            "product": {
+                "id": "dimtrs"
+            },
+            "notes": "a few notes"
+        }
+        
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {
+                "id": 6
+            }
+        }    
+        
+## List Item [/franchise/{franchiseId}/location/{locationId}/list/{listId}/item/{itemId}]
+
+### Get a specific item in a list [GET]
+
++ Parameters
+    + franchiseId (required, number, `1`) ... Numeric `id` of the franchise.
+    + locationId (required, number, `1`) ... Numeric `id` of the location.
+    + listId (required, number, `1`) ... Numeric `id` of the list.
+    + itemId (required, number, `1`) ... Numeric `id` of the item.
+    
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {
+                "id": 1,
+                "product": {
+                    "id": "RVOBIF",
+                    "name": "Flower Power",
+                    "style": {
+                        "id": 30,
+                        "name": "American-Style India Pale Ale"
+                    },
+                    "breweries": [
+                        {
+                            "id": "iGWHI1",
+                            "name": "Ithaca Beer Co."
+                        }
+                    ]
+                },
+                "notes": "get this bad boy",
+                "createdByUser": {
+                    "id": 102102,
+                    "firstName": "iOS",
+                    "lastName": "Admin",
+                    "emailAddress": "iosadmin@steadyserv.net"
+                },
+                "lastUpdatedByUser": {
+                    "id": 102102,
+                    "firstName": "iOS",
+                    "lastName": "Admin",
+                    "emailAddress": "iosadmin@steadyserv.net"
+                },
+                "createTimestamp": 1411738610,
+                "updateTimestamp": 1411738610
+            }
+        }        
+        
+### Replace an item on a list [PUT]
+
++ Parameters
+    + franchiseId (required, number, `1`) ... Numeric `id` of the franchise.
+    + locationId (required, number, `1`) ... Numeric `id` of the location.
+    + listId (required, number, `1`) ... Numeric `id` of the list.
+    + itemId (required, number, `1`) ... Numeric `id` of the item.
+
++ Request (application/json)
+
+        {
+            "notes": "New notes"
+        } 
+        
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {}
+        }           
+        
+### Deletes an item from a list [DELETE]
+
++ Parameters
+    + franchiseId (required, number, `1`) ... Numeric `id` of the franchise.
+    + locationId (required, number, `1`) ... Numeric `id` of the location.
+    + listId (required, number, `1`) ... Numeric `id` of the list.
+    + itemId (required, number, `1`) ... Numeric `id` of the item.
+        
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {}
+        }
+
+# Group List Share
+Share a list **iKeg API**
+
+## Share [/franchise/{franchiseId}/location/{locationId}/list/{listId}/share]
+
+### Add an item to a list [POST]
+
++ Parameters
+    + franchiseId (required, number, `1`) ... Numeric `id` of the franchise.
+    + locationId (required, number, `1`) ... Numeric `id` of the location.
+    + listId (required, number, `1`) ... Numeric `id` of the list.
+    
++ Request (application/json)
+
+        {
+            "method": "email",
+            "recipient": "bob@home.net"
+        }
+        
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {
+                "id": 6
+            }
+        }    
+
+
+# Group Users
+Get users from the **iKeg API**
+
+## Users Collection [/user]
+
+### List all users [GET]
+
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {
+                "pageNumber": 1,
+                "pageSize": 1,
+                "totalResults": 1,
+                "totalPages": 1,
+                "results": [
+                    {
+                        "id": 1,
+                        "firstName": "Joe",
+                        "lastName": "User",
+                        "emailAddress": "joe@steadyserv.com",
+                        "mobileNumber": "444-335-2342",
+                        "timezone": "America/New_York",
+                        "role": {
+                            "key": "employee",
+                            "type": "application"
+                        },
+                        "loginActions": [
+                            {
+                                "action": "changePassword"
+                            }
+                        ],
+                        "access": {
+                            "franchises": [
+                                {
+                                    "franchise": {
+                                        "id": 1,
+                                        "name": "My Franchise"
+                                    },
+                                    "role": {
+                                        "key": "franchiseMember",
+                                        "type": "franchise"
+                                    },
+                                    "locations": [
+                                        {
+                                            "location": {
+                                                "id": 10112,
+                                                "name": "Ale Emporium"
+                                            },
+                                            "role": {
+                                                "key": "franchiseLocationManager",
+                                                "type": "franchiseLocation"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ],
+                            "distributors": [
+                                {
+                                    "distributor": {
+                                        "id": 1,
+                                        "name": "Jons Distributing"
+                                    },
+                                    "role": {
+                                        "key": "distributorOwner",
+                                        "type": "distributor"
+                                    },
+                                    "locations": [
+                                        {
+                                            "location": {
+                                                "id": 1,
+                                                "name": "My location"
+                                            },
+                                            "role": {
+                                                "key": "distributorLocationSales",
+                                                "type": "distributorLocation"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ],
+                            "breweries": [
+                                {
+                                    "brewery": {
+                                        "id": "3r45D3",
+                                        "name": "Joes Brewing Company"
+                                    },
+                                    "role": {
+                                        "key": "breweryOwner",
+                                        "type": "brewery"
+                                    },
+                                    "distributors": [
+                                        {
+                                            "distributor": {
+                                                "id": 1,
+                                                "name": "My Distributor"
+                                            },
+                                            "role": {
+                                                "key": "breweryDistributorSales",
+                                                "type": "breweryDistributor"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }                 
+                ]
+            }
+        }
+        
+### Create a user [POST]
+
++ Request (application/json)
+
+        {
+            "firstName": "Bill",
+            "lastName": "Clinton",
+            "emailAddress": "bill@clinton.com",
+            "mobileNumber": "4445552424",
+            "timezone": "America/Chicago",
+            "password": "saxaphone",
+            "role": {
+                "key": "administrator"
+            }
+        }
+        
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {
+                "id": 3
+            }
+        }    
+        
+## User [/user/{userId}]
+
+### Get a single user [GET]
+
++ Parameters
+    + userId (required, number, `1`) ... Numeric `id` of the user.
+    
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {
+                "id": 1,
+                "firstName": "Joe",
+                "lastName": "User",
+                "emailAddress": "joe@steadyserv.com",
+                "mobileNumber": "444-335-2342",
+                "timezone": "America/New_York",
+                "role": {
+                    "key": "employee",
+                    "type": "application"
+                },
+                "loginActions": [
+                    {
+                        "action": "changePassword"
+                    }
+                ],
+                "access": {
+                    "franchises": [
+                        {
+                            "franchise": {
+                                "id": 1,
+                                "name": "My Franchise"
+                            },
+                            "role": {
+                                "key": "franchiseMember",
+                                "type": "franchise"
+                            },
+                            "locations": [
+                                {
+                                    "location": {
+                                        "id": 10112,
+                                        "name": "Ale Emporium"
+                                    },
+                                    "role": {
+                                        "key": "franchiseLocationManager",
+                                        "type": "franchiseLocation"
+                                    }
+                                }
+                            ]
+                        }
+                    ],
+                    "distributors": [
+                        {
+                            "distributor": {
+                                "id": 1,
+                                "name": "Jons Distributing"
+                            },
+                            "role": {
+                                "key": "distributorOwner",
+                                "type": "distributor"
+                            },
+                            "locations": [
+                                {
+                                    "location": {
+                                        "id": 1,
+                                        "name": "My location"
+                                    },
+                                    "role": {
+                                        "key": "distributorLocationSales",
+                                        "type": "distributorLocation"
+                                    }
+                                }
+                            ]
+                        }
+                    ],
+                    "breweries": [
+                        {
+                            "brewery": {
+                                "id": "3r45D3",
+                                "name": "Joes Brewing Company"
+                            },
+                            "role": {
+                                "key": "breweryOwner",
+                                "type": "brewery"
+                            },
+                            "distributors": [
+                                {
+                                    "distributor": {
+                                        "id": 1,
+                                        "name": "My Distributor"
+                                    },
+                                    "role": {
+                                        "key": "breweryDistributorSales",
+                                        "type": "breweryDistributor"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            } 
+        }        
+        
+### Replace a user [PUT]
+
++ Parameters
+    + userId (required, number, `1`) ... Numeric `id` of the user.
+
++ Request (application/json)
+
+        {
+            "firstName": "Bill",
+            "lastName": "Clinton",
+            "emailAddress": "bill@clinton.com",
+            "mobileNumber": "4445552424",
+            "timezone": "America/Chicago",
+            "password": "saxaphone",
+            "role": {
+                "key": "administrator"
+            }
+        }
+        
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {}
+        }           
+        
+### Update parts of a user [PATCH]
+
++ Parameters
+    + userId (required, number, `1`) ... Numeric `id` of the user.
+
++ Request (application/json)
+
+        {
+            "firstName": "Bill",
+            "lastName": "Clinton",
+            "emailAddress": "bill@clinton.com",
+            "mobileNumber": "4445552424",
+            "timezone": "America/Chicago",
+            "password": "saxaphone",
+            "role": {
+                "key": "administrator"
+            }
+        }
+        
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {}
+        }     
+        
+### Deletes a user [DELETE]
+
++ Parameters
+    + userId (required, number, `1`) ... Numeric `id` of the user.
+        
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {}
+        }
+        
+# Group User - Alert Depletion Limit
+Get all depletion limit alerts for the user from the **iKeg API**
+
+## Depletion Limt Alerts Collection [/user/{userId}/alertDepletionLimit]
+
+### List all depletion limit alerts [GET]
+
++ Parameters
+    + userId (required, number, `1`) ... Numeric `id` of the user.
+
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {
+                "pageNumber": 1,
+                "pageSize": 1,
+                "totalResults": 5,
+                "totalPages": 1,
+                "results": [
+                    {
+                        "id": 1,
+                        "active": true,
+                        "nickname": "Flower Power at Ceasars",
+                        "products": [
+                            {
+                                "id": "RVOBIF",
+                                "name": "Flower Power",
+                                "style": {
+                                    "id": 30,
+                                    "name": "American-Style India Pale Ale"
+                                },
+                                "breweries": [
+                                    {
+                                        "id": "iGWHI1",
+                                        "name": "Ithaca Beer Co."
+                                    }
+                                ]
+                            }
+                        ],
+                        "locations": [
+                            {
+                                "id": 10091,
+                                "name": "Ceasars Tap Room",
+                                "franchise": {
+                                    "id": 10207,
+                                    "name": "Genesee Franchise"
+                                }
+                            }
+                        ],
+                        "percentRemaining": 10,
+                        "notifyViaEmail": false,
+                        "notifyViaSms": true,
+                        "notifyViaPush": true
+                    },
+                    {
+                        "id": 2,
+                        "active": true,
+                        "nickname": "All beers at All Locations",
+                        "products": [],
+                        "locations": [],
+                        "percentRemaining": 10,
+                        "notifyViaEmail": false,
+                        "notifyViaSms": true,
+                        "notifyViaPush": true
+                    },
+                    {
+                        "id": 3,
+                        "active": false,
+                        "nickname": "Domestic at Ceasars and SteadyServ RDU",
+                        "products": [
+                            {
+                                "id": "dimtrs",
+                                "name": "Bud Light",
+                                "style": {
+                                    "id": 94,
+                                    "name": "American-Style Light (Low Calorie) Lager"
+                                },
+                                "breweries": [
+                                    {
+                                        "id": "BznahA",
+                                        "name": "Anheuser-Busch InBev"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "XcvLTe",
+                                "name": "Coors Light",
+                                "style": {
+                                    "id": 94,
+                                    "name": "American-Style Light (Low Calorie) Lager"
+                                },
+                                "breweries": [
+                                    {
+                                        "id": "avMkil",
+                                        "name": "Coors Brewing Company"
+                                    }
+                                ]
+                            }                            
+                        ],
+                        "locations": [
+                            {
+                                "id": 10091,
+                                "name": "Ceasars Tap Room",
+                                "franchise": {
+                                    "id": 10207,
+                                    "name": "Genesee Franchise"
+                                }
+                            },
+                            {
+                                "id": 10221,
+                                "name": "SteadyServ RDU",
+                                "franchise": {
+                                    "id": 10207,
+                                    "name": "Genesee Franchise"
+                                }
+                            }                            
+                        ],
+                        "percentRemaining": 5,
+                        "notifyViaEmail": true,
+                        "notifyViaSms": false,
+                        "notifyViaPush": false
+                    }                      
+                ]
+            }
+        }
+        
+### Create a depletion limit alert [POST]
+
++ Parameters
+    + userId (required, number, `1`) ... Numeric `id` of the user.
+
++ Request (application/json)
+
+        {
+            "active": true,
+            "nickname": "New Alert",
+            "products": [
+                {
+                    "id": "htLzia"
+                }
+            ],
+            "locations": [
+                {
+                    "id": 10078
+                }
+            ],
+            "percentRemaining": 18,
+            "notifyViaEmail": false,
+            "notifyViaSms": true,
+            "notifyViaPush": true
+        }
+        
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {
+                "id": 47
+            }
+        }    
+        
+## Depletion Limt Alert [/user/{userId}/alertDepletionLimit/{alertDepletionLimitId}]
+
+### Get a single depletion limit alert [GET]
+
++ Parameters
+    + userId (required, number, `1`) ... Numeric `id` of the user.
+    + alertDepletionLimitId (required, number, `1`) ... Numeric `id` of the alert.
+
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {
+                "id": 1,
+                "active": true,
+                "nickname": "Flower Power at Ceasars",
+                "products": [
+                    {
+                        "id": "RVOBIF",
+                        "name": "Flower Power",
+                        "style": {
+                            "id": 30,
+                            "name": "American-Style India Pale Ale"
+                        },
+                        "breweries": [
+                            {
+                                "id": "iGWHI1",
+                                "name": "Ithaca Beer Co."
+                            }
+                        ]
+                    }
+                ],
+                "locations": [
+                    {
+                        "id": 10091,
+                        "name": "Ceasars Tap Room",
+                        "franchise": {
+                            "id": 10207,
+                            "name": "Genesee Franchise"
+                        }
+                    }
+                ],
+                "percentRemaining": 10,
+                "notifyViaEmail": false,
+                "notifyViaSms": true,
+                "notifyViaPush": true
+            }
+        }        
+        
+### Replace a depletion limit alert [PUT]
+
++ Parameters
+    + userId (required, number, `1`) ... Numeric `id` of the user.
+    + alertDepletionLimitId (required, number, `1`) ... Numeric `id` of the alert.
+
++ Request (application/json)
+
+        {
+            "active": true,
+            "nickname": "New Alert",
+            "products": [
+                {
+                    "id": "htLzia"
+                }
+            ],
+            "locations": [
+                {
+                    "id": 10078
+                }
+            ],
+            "percentRemaining": 18,
+            "notifyViaEmail": false,
+            "notifyViaSms": true,
+            "notifyViaPush": true
+        }
+        
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {}
+        }           
+        
+### Update parts of a depletion limit alert [PATCH]
+
++ Parameters
+    + userId (required, number, `1`) ... Numeric `id` of the user.
+    + alertDepletionLimitId (required, number, `1`) ... Numeric `id` of the alert.
+
++ Request (application/json)
+
+        {
+            "active": true,
+            "nickname": "New Alert",
+            "products": [
+                {
+                    "id": "htLzia"
+                }
+            ],
+            "locations": [
+                {
+                    "id": 10078
+                }
+            ],
+            "percentRemaining": 18,
+            "notifyViaEmail": false,
+            "notifyViaSms": true,
+            "notifyViaPush": true
+        }
+        
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {}
+        }     
+        
+### Deletes a depletion limit alert [DELETE]
+
++ Parameters
+    + userId (required, number, `1`) ... Numeric `id` of the user.
+    + alertDepletionLimitId (required, number, `1`) ... Numeric `id` of the alert.
+        
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {}
+        }           
+             
+# Group User - Alert Depletion Rate
+Get all depletion rate alerts for the user from the **iKeg API**
+
+## Depletion Rate Alerts Collection [/user/{userId}/alertDepletionRate]
+
+### List all depletion ate [GET]
+
++ Parameters
+    + userId (required, number, `1`) ... Numeric `id` of the user.
+
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {
+                "pageNumber": 1,
+                "pageSize": 1,
+                "totalResults": 5,
+                "totalPages": 1,
+                "results": [
+                    {
+                        "id": 1,
+                        "active": true,
+                        "nickname": "Flower Power at Ceasars",
+                        "products": [
+                            {
+                                "id": "RVOBIF",
+                                "name": "Flower Power",
+                                "style": {
+                                    "id": 30,
+                                    "name": "American-Style India Pale Ale"
+                                },
+                                "breweries": [
+                                    {
+                                        "id": "iGWHI1",
+                                        "name": "Ithaca Beer Co."
+                                    }
+                                ]
+                            }
+                        ],
+                        "locations": [
+                            {
+                                "id": 10091,
+                                "name": "Ceasars Tap Room",
+                                "franchise": {
+                                    "id": 10207,
+                                    "name": "Genesee Franchise"
+                                }
+                            }
+                        ],
+                        "percentChange": 10,
+                        "intervalMinutes": 400,
+                        "velocity": "fast",
+                        "notifyViaEmail": false,
+                        "notifyViaSms": true,
+                        "notifyViaPush": true
+                    },
+                    {
+                        "id": 2,
+                        "active": true,
+                        "nickname": "All beers at All Locations",
+                        "products": [],
+                        "locations": [],
+                        "percentChange": 20,
+                        "intervalMinutes": 800,
+                        "velocity": "fast",
+                        "notifyViaEmail": false,
+                        "notifyViaSms": true,
+                        "notifyViaPush": true
+                    },
+                    {
+                        "id": 3,
+                        "active": false,
+                        "nickname": "Domestic at Ceasars and SteadyServ RDU",
+                        "products": [
+                            {
+                                "id": "dimtrs",
+                                "name": "Bud Light",
+                                "style": {
+                                    "id": 94,
+                                    "name": "American-Style Light (Low Calorie) Lager"
+                                },
+                                "breweries": [
+                                    {
+                                        "id": "BznahA",
+                                        "name": "Anheuser-Busch InBev"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "XcvLTe",
+                                "name": "Coors Light",
+                                "style": {
+                                    "id": 94,
+                                    "name": "American-Style Light (Low Calorie) Lager"
+                                },
+                                "breweries": [
+                                    {
+                                        "id": "avMkil",
+                                        "name": "Coors Brewing Company"
+                                    }
+                                ]
+                            }                            
+                        ],
+                        "locations": [
+                            {
+                                "id": 10091,
+                                "name": "Ceasars Tap Room",
+                                "franchise": {
+                                    "id": 10207,
+                                    "name": "Genesee Franchise"
+                                }
+                            },
+                            {
+                                "id": 10221,
+                                "name": "SteadyServ RDU",
+                                "franchise": {
+                                    "id": 10207,
+                                    "name": "Genesee Franchise"
+                                }
+                            }                            
+                        ],
+                        "percentChange": 8,
+                        "intervalMinutes": 200,
+                        "velocity": "fast",
+                        "notifyViaEmail": true,
+                        "notifyViaSms": false,
+                        "notifyViaPush": false
+                    }                      
+                ]
+            }
+        }
+        
+### Create a depletion rate alert [POST]
+
++ Parameters
+    + userId (required, number, `1`) ... Numeric `id` of the user.
+
++ Request (application/json)
+
+        {
+            "active": true,
+            "nickname": "New Alert",
+            "products": [
+                {
+                    "id": "htLzia"
+                }
+            ],
+            "locations": [
+                {
+                    "id": 10078
+                }
+            ],
+            "percentChange": 10,
+            "intervalMinutes": 400,
+            "velocity": "fast",
+            "notifyViaEmail": false,
+            "notifyViaSms": true,
+            "notifyViaPush": true
+        }
+        
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {
+                "id": 47
+            }
+        }    
+        
+## Depletion Rate Alert [/user/{userId}/alertDepletionRate/{alertDepletionRateId}]
+
+### Get a single depletion rate alert [GET]
+
++ Parameters
+    + userId (required, number, `1`) ... Numeric `id` of the user.
+    + alertDepletionRateId (required, number, `1`) ... Numeric `id` of the alert.
+
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {
+                "id": 1,
+                "active": true,
+                "nickname": "Flower Power at Ceasars",
+                "products": [
+                    {
+                        "id": "RVOBIF",
+                        "name": "Flower Power",
+                        "style": {
+                            "id": 30,
+                            "name": "American-Style India Pale Ale"
+                        },
+                        "breweries": [
+                            {
+                                "id": "iGWHI1",
+                                "name": "Ithaca Beer Co."
+                            }
+                        ]
+                    }
+                ],
+                "locations": [
+                    {
+                        "id": 10091,
+                        "name": "Ceasars Tap Room",
+                        "franchise": {
+                            "id": 10207,
+                            "name": "Genesee Franchise"
+                        }
+                    }
+                ],
+                "percentChange": 10,
+                "intervalMinutes": 400,
+                "velocity": "fast",
+                "notifyViaEmail": false,
+                "notifyViaSms": true,
+                "notifyViaPush": true
+            }
+        }        
+        
+### Replace a depletion rate alert [PUT]
+
++ Parameters
+    + userId (required, number, `1`) ... Numeric `id` of the user.
+    + alertDepletionRateId (required, number, `1`) ... Numeric `id` of the alert.
+
++ Request (application/json)
+
+        {
+            "active": true,
+            "nickname": "New Alert",
+            "products": [
+                {
+                    "id": "htLzia"
+                }
+            ],
+            "locations": [
+                {
+                    "id": 10078
+                }
+            ],
+            "percentChange": 10,
+            "intervalMinutes": 400,
+            "velocity": "fast",
+            "notifyViaEmail": false,
+            "notifyViaSms": true,
+            "notifyViaPush": true
+        }
+        
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {}
+        }           
+        
+### Update parts of a depletion rate alert [PATCH]
+
++ Parameters
+    + userId (required, number, `1`) ... Numeric `id` of the user.
+    + alertDepletionRateId (required, number, `1`) ... Numeric `id` of the alert.
+
++ Request (application/json)
+
+        {
+            "active": true,
+            "nickname": "New Alert",
+            "products": [
+                {
+                    "id": "htLzia"
+                }
+            ],
+            "locations": [
+                {
+                    "id": 10078
+                }
+            ],
+            "percentChange": 10,
+            "intervalMinutes": 400,
+            "velocity": "fast",
+            "notifyViaEmail": false,
+            "notifyViaSms": true,
+            "notifyViaPush": true
+        }
+        
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {}
+        }     
+        
+### Deletes a depletion rate alert [DELETE]
+
++ Parameters
+    + userId (required, number, `1`) ... Numeric `id` of the user.
+    + alertDepletionRateId (required, number, `1`) ... Numeric `id` of the alert.
+        
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {}
+        }           
+               
+# Group User - Alert Keg Lost
+Get all keg lost alerts for the user from the **iKeg API**
+
+## Keg Lost Alerts Collection [/user/{userId}/alertKegLost]
+
+### List all keg lost alerts [GET]
+
++ Parameters
+    + userId (required, number, `1`) ... Numeric `id` of the user.
+
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {
+                "pageNumber": 1,
+                "pageSize": 1,
+                "totalResults": 2,
+                "totalPages": 1,
+                "results": [
+                    {
+                        "id": 1,
+                        "active": true,
+                        "nickname": "All Locations",
+                        "locations": [],
+                        "daysSinceLastSeen": 10,
+                        "notifyViaEmail": false,
+                        "notifyViaSms": true,
+                        "notifyViaPush": true
+                    },
+                    {
+                        "id": 2,
+                        "active": false,
+                        "nickname": "Ceasars and SteadyServ RDU",
+                        "locations": [
+                            {
+                                "id": 10091,
+                                "name": "Ceasars Tap Room",
+                                "franchise": {
+                                    "id": 10207,
+                                    "name": "Genesee Franchise"
+                                }
+                            },
+                            {
+                                "id": 10221,
+                                "name": "SteadyServ RDU",
+                                "franchise": {
+                                    "id": 10207,
+                                    "name": "Genesee Franchise"
+                                }
+                            }                            
+                        ],
+                        "daysSinceLastSeen": 2,
+                        "notifyViaEmail": true,
+                        "notifyViaSms": false,
+                        "notifyViaPush": false
+                    }                      
+                ]
+            }
+        }
+        
+### Create a depletion rate alert [POST]
+
++ Parameters
+    + userId (required, number, `1`) ... Numeric `id` of the user.
+
++ Request (application/json)
+
+        {
+            "active": true,
+            "nickname": "New Alert",
+            "locations": [
+                {
+                    "id": 10078
+                }
+            ],
+            "daysSinceLastSeen": 10,
+            "notifyViaEmail": false,
+            "notifyViaSms": true,
+            "notifyViaPush": true
+        }
+        
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {
+                "id": 47
+            }
+        }    
+        
+## Keg Lost Alert [/user/{userId}/alertKegLost/{alertKegLostId}]
+
+### Get a single keg lost alert [GET]
+
++ Parameters
+    + userId (required, number, `1`) ... Numeric `id` of the user.
+    + alertKegLostId (required, number, `1`) ... Numeric `id` of the alert.
+
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {
+                "id": 1,
+                "active": true,
+                "nickname": "Ceasars",
+                "locations": [
+                    {
+                        "id": 10091,
+                        "name": "Ceasars Tap Room",
+                        "franchise": {
+                            "id": 10207,
+                            "name": "Genesee Franchise"
+                        }
+                    }
+                ],
+                "daysSinceLastSeen": 10,
+                "notifyViaEmail": false,
+                "notifyViaSms": true,
+                "notifyViaPush": true
+            }
+        }        
+        
+### Replace a keg lost alert [PUT]
+
++ Parameters
+    + userId (required, number, `1`) ... Numeric `id` of the user.
+    + alertKegLostId (required, number, `1`) ... Numeric `id` of the alert.
+
++ Request (application/json)
+
+        {
+            "active": true,
+            "nickname": "New Alert",
+            "locations": [
+                {
+                    "id": 10078
+                }
+            ],
+            "daysSinceLastSeen": 10,
+            "notifyViaEmail": false,
+            "notifyViaSms": true,
+            "notifyViaPush": true
+        }
+        
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {}
+        }           
+        
+### Update parts of a keg lost alert [PATCH]
+
++ Parameters
+    + userId (required, number, `1`) ... Numeric `id` of the user.
+    + alertKegLostId (required, number, `1`) ... Numeric `id` of the alert.
+
++ Request (application/json)
+
+        {
+            "active": true,
+            "nickname": "New Alert",
+            "locations": [
+                {
+                    "id": 10078
+                }
+            ],
+            "daysSinceLastSeen": 10,
+            "notifyViaEmail": false,
+            "notifyViaSms": true,
+            "notifyViaPush": true
+        }
+        
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {}
+        }     
+        
+### Deletes a keg lost alert [DELETE]
+
++ Parameters
+    + userId (required, number, `1`) ... Numeric `id` of the user.
+    + alertKegLostId (required, number, `1`) ... Numeric `id` of the alert.
+        
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {}
+        }           
+               
+# Group User - Alert Keg Weight Anomaly
+Get all keg weight anomaly alerts for the user from the **iKeg API**
+
+## Keg Weight Anomaly Alerts Collection [/user/{userId}/alertKegWeightAnomaly]
+
+### List all keg weight anomaly alerts [GET]
+
++ Parameters
+    + userId (required, number, `1`) ... Numeric `id` of the user.
+
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {
+                "pageNumber": 1,
+                "pageSize": 1,
+                "totalResults": 2,
+                "totalPages": 2,
+                "results": [
+                    {
+                        "id": 1,
+                        "active": true,
+                        "nickname": "All Locations",
+                        "locations": [],
+                        "notifyViaEmail": false,
+                        "notifyViaSms": true,
+                        "notifyViaPush": true
+                    },
+                    {
+                        "id": 2,
+                        "active": false,
+                        "nickname": "Ceasars and SteadyServ RDU",
+                        "locations": [
+                            {
+                                "id": 10091,
+                                "name": "Ceasars Tap Room",
+                                "franchise": {
+                                    "id": 10207,
+                                    "name": "Genesee Franchise"
+                                }
+                            },
+                            {
+                                "id": 10221,
+                                "name": "SteadyServ RDU",
+                                "franchise": {
+                                    "id": 10207,
+                                    "name": "Genesee Franchise"
+                                }
+                            }                            
+                        ],
+                        "notifyViaEmail": true,
+                        "notifyViaSms": false,
+                        "notifyViaPush": false
+                    }                      
+                ]
+            }
+        }
+        
+### Create a weight anomaly alert [POST]
+
++ Parameters
+    + userId (required, number, `1`) ... Numeric `id` of the user.
+
++ Request (application/json)
+
+        {
+            "active": true,
+            "nickname": "New Alert",
+            "locations": [
+                {
+                    "id": 10078
+                }
+            ],
+            "notifyViaEmail": false,
+            "notifyViaSms": true,
+            "notifyViaPush": true
+        }
+        
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {
+                "id": 47
+            }
+        }    
+        
+## Keg Weight Anomaly Alert [/user/{userId}/alertKegWeightAnomaly/{alertKegWeightAnomalyId}]
+
+### Get a single keg weight anomaly alert [GET]
+
++ Parameters
+    + userId (required, number, `1`) ... Numeric `id` of the user.
+    + alertKegWeightAnomalyId (required, number, `1`) ... Numeric `id` of the alert.
+
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {
+                "id": 1,
+                "active": true,
+                "nickname": "Ceasars",
+                "locations": [
+                    {
+                        "id": 10091,
+                        "name": "Ceasars Tap Room",
+                        "franchise": {
+                            "id": 10207,
+                            "name": "Genesee Franchise"
+                        }
+                    }
+                ],
+                "notifyViaEmail": false,
+                "notifyViaSms": true,
+                "notifyViaPush": true
+            }
+        }        
+        
+### Replace a keg weight anomaly alert [PUT]
+
++ Parameters
+    + userId (required, number, `1`) ... Numeric `id` of the user.
+    + alertKegWeightAnomalyId (required, number, `1`) ... Numeric `id` of the alert.
+
++ Request (application/json)
+
+        {
+            "active": true,
+            "nickname": "New Alert",
+            "locations": [
+                {
+                    "id": 10078
+                }
+            ],
+            "notifyViaEmail": false,
+            "notifyViaSms": true,
+            "notifyViaPush": true
+        }
+        
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {}
+        }           
+        
+### Update parts of a keg weight anomaly alert [PATCH]
+
++ Parameters
+    + userId (required, number, `1`) ... Numeric `id` of the user.
+    + alertKegWeightAnomalyId (required, number, `1`) ... Numeric `id` of the alert.
+
++ Request (application/json)
+
+        {
+            "active": true,
+            "nickname": "New Alert",
+            "locations": [
+                {
+                    "id": 10078
+                }
+            ],
+            "notifyViaEmail": false,
+            "notifyViaSms": true,
+            "notifyViaPush": true
+        }
+        
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {}
+        }     
+        
+### Deletes a keg weight anomaly alert [DELETE]
+
++ Parameters
+    + userId (required, number, `1`) ... Numeric `id` of the user.
+    + alertKegWeightAnomalyId (required, number, `1`) ... Numeric `id` of the alert.
+        
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {}
+        }
+        
+        
+        
+# Group User - Alert Days on Tap
+Get all days on tap alerts for the user from the **iKeg API**
+
+## Days On Tap Alerts Collection [/user/{userId}/alertDaysOnTap]
+
+### List all days on tap alerts [GET]
+
++ Parameters
+    + userId (required, number, `1`) ... Numeric `id` of the user.
+
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {
+                "pageNumber": 1,
+                "pageSize": 1,
+                "totalResults": 5,
+                "totalPages": 1,
+                "results": [
+                    {
+                        "id": 1,
+                        "active": true,
+                        "nickname": "Flower Power at Ceasars",
+                        "products": [
+                            {
+                                "id": "RVOBIF",
+                                "name": "Flower Power",
+                                "style": {
+                                    "id": 30,
+                                    "name": "American-Style India Pale Ale"
+                                },
+                                "breweries": [
+                                    {
+                                        "id": "iGWHI1",
+                                        "name": "Ithaca Beer Co."
+                                    }
+                                ]
+                            }
+                        ],
+                        "locations": [
+                            {
+                                "id": 10091,
+                                "name": "Ceasars Tap Room",
+                                "franchise": {
+                                    "id": 10207,
+                                    "name": "Genesee Franchise"
+                                }
+                            }
+                        ],
+                        "daysOnTap": 6,
+                        "notifyViaEmail": false,
+                        "notifyViaSms": true,
+                        "notifyViaPush": true
+                    },
+                    {
+                        "id": 2,
+                        "active": true,
+                        "nickname": "All beers at All Locations",
+                        "products": [],
+                        "locations": [],
+                        "daysOnTap": 10,
+                        "notifyViaEmail": false,
+                        "notifyViaSms": true,
+                        "notifyViaPush": true
+                    },
+                    {
+                        "id": 3,
+                        "active": false,
+                        "nickname": "Domestic at Ceasars and SteadyServ RDU",
+                        "products": [
+                            {
+                                "id": "dimtrs",
+                                "name": "Bud Light",
+                                "style": {
+                                    "id": 94,
+                                    "name": "American-Style Light (Low Calorie) Lager"
+                                },
+                                "breweries": [
+                                    {
+                                        "id": "BznahA",
+                                        "name": "Anheuser-Busch InBev"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "XcvLTe",
+                                "name": "Coors Light",
+                                "style": {
+                                    "id": 94,
+                                    "name": "American-Style Light (Low Calorie) Lager"
+                                },
+                                "breweries": [
+                                    {
+                                        "id": "avMkil",
+                                        "name": "Coors Brewing Company"
+                                    }
+                                ]
+                            }                            
+                        ],
+                        "locations": [
+                            {
+                                "id": 10091,
+                                "name": "Ceasars Tap Room",
+                                "franchise": {
+                                    "id": 10207,
+                                    "name": "Genesee Franchise"
+                                }
+                            },
+                            {
+                                "id": 10221,
+                                "name": "SteadyServ RDU",
+                                "franchise": {
+                                    "id": 10207,
+                                    "name": "Genesee Franchise"
+                                }
+                            }                            
+                        ],
+                        "daysOnTap": 5,
+                        "notifyViaEmail": true,
+                        "notifyViaSms": false,
+                        "notifyViaPush": false
+                    }                      
+                ]
+            }
+        }
+        
+### Create a days on tap alert [POST]
+
++ Parameters
+    + userId (required, number, `1`) ... Numeric `id` of the user.
+
++ Request (application/json)
+
+        {
+            "active": true,
+            "nickname": "New Alert",
+            "products": [
+                {
+                    "id": "htLzia"
+                }
+            ],
+            "locations": [
+                {
+                    "id": 10078
+                }
+            ],
+            "daysOnTap": 18,
+            "notifyViaEmail": false,
+            "notifyViaSms": true,
+            "notifyViaPush": true
+        }
+        
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {
+                "id": 47
+            }
+        }    
+        
+## Days On Tap Alert [/user/{userId}/alertDaysOnTap/{alertDaysOnTapId}]
+
+### Get a single depletion limit alert [GET]
+
++ Parameters
+    + userId (required, number, `1`) ... Numeric `id` of the user.
+    + alertDaysOnTapId (required, number, `1`) ... Numeric `id` of the alert.
+
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {
+                "id": 1,
+                "active": true,
+                "nickname": "Flower Power at Ceasars",
+                "products": [
+                    {
+                        "id": "RVOBIF",
+                        "name": "Flower Power",
+                        "style": {
+                            "id": 30,
+                            "name": "American-Style India Pale Ale"
+                        },
+                        "breweries": [
+                            {
+                                "id": "iGWHI1",
+                                "name": "Ithaca Beer Co."
+                            }
+                        ]
+                    }
+                ],
+                "locations": [
+                    {
+                        "id": 10091,
+                        "name": "Ceasars Tap Room",
+                        "franchise": {
+                            "id": 10207,
+                            "name": "Genesee Franchise"
+                        }
+                    }
+                ],
+                "daysOnTap": 10,
+                "notifyViaEmail": false,
+                "notifyViaSms": true,
+                "notifyViaPush": true
+            }
+        }        
+        
+### Replace a days on tap alert [PUT]
+
++ Parameters
+    + userId (required, number, `1`) ... Numeric `id` of the user.
+    + alertDaysOnTapId (required, number, `1`) ... Numeric `id` of the alert.
+
++ Request (application/json)
+
+        {
+            "active": true,
+            "nickname": "New Alert",
+            "products": [
+                {
+                    "id": "htLzia"
+                }
+            ],
+            "locations": [
+                {
+                    "id": 10078
+                }
+            ],
+            "daysOnTap": 18,
+            "notifyViaEmail": false,
+            "notifyViaSms": true,
+            "notifyViaPush": true
+        }
+        
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {}
+        }           
+        
+### Update parts of a days on tap alert [PATCH]
+
++ Parameters
+    + userId (required, number, `1`) ... Numeric `id` of the user.
+    + alertDaysOnTapId (required, number, `1`) ... Numeric `id` of the alert.
+
++ Request (application/json)
+
+        {
+            "active": true,
+            "nickname": "New Alert",
+            "products": [
+                {
+                    "id": "htLzia"
+                }
+            ],
+            "locations": [
+                {
+                    "id": 10078
+                }
+            ],
+            "daysOnTap": 18,
+            "notifyViaEmail": false,
+            "notifyViaSms": true,
+            "notifyViaPush": true
+        }
+        
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {}
+        }     
+        
+### Deletes a days on tap alert [DELETE]
+
++ Parameters
+    + userId (required, number, `1`) ... Numeric `id` of the user.
+    + alertDaysOnTapId (required, number, `1`) ... Numeric `id` of the alert.
+        
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {}
+        }    
+        
+        
+        
+        
+        
+        
+# Group User - Alert System
+Get all system alerts for the user from the **iKeg API**
+
+## System Alerts Collection [/user/{userId}/alertSystem]
+
+### List all system alerts [GET]
+
++ Parameters
+    + userId (required, number, `1`) ... Numeric `id` of the user.
+
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {
+                "pageNumber": 1,
+                "pageSize": 1,
+                "totalResults": 1,
+                "totalPages": 1,
+                "results": [
+                    {
+                        "id": 1,
+                        "active": true,
+                        "nickname": "System Alerts",
+                        "notifyViaEmail": true,
+                        "notifyViaSms": true,
+                        "notifyViaPush": true
+                    }                     
+                ]
+            }
+        }
+        
+### Create a system alert [POST]
+
++ Parameters
+    + userId (required, number, `1`) ... Numeric `id` of the user.
+
++ Request (application/json)
+
+        {
+            "active": true,
+            "nickname": "New Alert",
+            "notifyViaEmail": false,
+            "notifyViaSms": true,
+            "notifyViaPush": true
+        }
+        
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {
+                "id": 47
+            }
+        }    
+        
+## System Alert [/user/{userId}/alertSystem/{alertSystemId}]
+
+### Get a single system alert [GET]
+
++ Parameters
+    + userId (required, number, `1`) ... Numeric `id` of the user.
+    + alertSystemId (required, number, `1`) ... Numeric `id` of the alert.
+
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {
+                "id": 1,
+                "active": true,
+                "nickname": "Ceasars",
+                "notifyViaEmail": false,
+                "notifyViaSms": true,
+                "notifyViaPush": true
+            }
+        }        
+        
+### Replace a system alert [PUT]
+
++ Parameters
+    + userId (required, number, `1`) ... Numeric `id` of the user.
+    + alertSystemId (required, number, `1`) ... Numeric `id` of the alert.
+
++ Request (application/json)
+
+        {
+            "active": true,
+            "nickname": "New Alert",
+            "notifyViaEmail": false,
+            "notifyViaSms": true,
+            "notifyViaPush": true
+        }
+        
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {}
+        }           
+        
+### Update parts of a system alert [PATCH]
+
++ Parameters
+    + userId (required, number, `1`) ... Numeric `id` of the user.
+    + alertSystemId (required, number, `1`) ... Numeric `id` of the alert.
+
++ Request (application/json)
+
+        {
+            "active": true,
+            "nickname": "New Alert",
+            "notifyViaEmail": false,
+            "notifyViaSms": true,
+            "notifyViaPush": true
+        }
+        
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {}
+        }     
+        
+### Deletes a system alert [DELETE]
+
++ Parameters
+    + userId (required, number, `1`) ... Numeric `id` of the user.
+    + alertSystemId (required, number, `1`) ... Numeric `id` of the alert.
+        
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {}
+        }
+             
+
+# Group User - Login Actions
+Get all login actions for the user from the **iKeg API**
+
+## Login Action Collection [/user/{userId}/loginAction]
+
+### List all login actions [GET]
+
++ Parameters
+    + userId (required, number, `1`) ... Numeric `id` of the user to get alerts for.
+
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {
+                "pageNumber": 1,
+                "pageSize": 1,
+                "totalResults": 3,
+                "totalPages": 1,
+                "results": [
+                    {
+                        "action": "changePassword"
+                    },
+                    {
+                        "action": "agreeToTOS"
+                    },
+                    {
+                        "action": "watchVideo"
+                    }                 
+                ]
+            }
+        }
+        
+### Create new login action for user [POST]
+
++ Parameters
+    + userId (required, number, `1`) ... Numeric `id` of the user to get alerts for.
+
++ Request (application/json)
+
+        { 
+            "action": "changePassword"
+        }
+        
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {}
+        }   
+        
+## Login Action [/user/{userId}/loginAction/{action}]
+
+### Deletes a login action [DELETE]
+
++ Parameters
+    + userId (required, number, `1`) ... Numeric `id` of the user.
+    + action (required, string, `changePassword`) ... String of what login action to reset.  Can be `changePassword`, `agreeToTOS` or `watchVideo`
+        
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {}
+        }        
+        
+# Group User - Messages
+Get all messages from the **iKeg API**
+
+## Message Collection [/user/{userId}/message]
+
+### List all Messages [GET]
+
++ Parameters
+    + userId (required, number, `1`) ... Numeric `id` of the user to get alerts for.
+
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {
+                "pageNumber": 1,
+                "pageSize": 1,
+                "totalResults": 5,
+                "totalPages": 1,
+                "results": [
+                    {
+                        "id": 1,
+                        "title": "Depletion Limit Notification",
+                        "description": "Your keg of Sam Addams Oktoberfest at Joe's Crab Shack has dropped below 10%",
+                        "read": false,
+                        "alertType": "depletionLimit",
+                        "alertMetaData": [
+                            {
+                                "key": "sensorId",
+                                "value": "000032B9"
+                            },
+                            {
+                                "key": "kegId",
+                                "value": "6053"
+                            },
+                            {
+                                "key": "locationId",
+                                "value": "10078"
+                            },
+                            {
+                                "key": "percentRemaining",
+                                "value": "10"
+                            }
+                        ],
+                        "sentTimestamp": 1411565657,
+                        "readTimestamp": 0
+                    },
+                    {
+                        "id": 2,
+                        "title": "Keg Freshness Notification",
+                        "description": "Your keg of Sam Addams Oktoberfest at Joe's Crab Shack has depleted slower than 10% in 2040 minutes.",
+                        "read": false,
+                        "alertType": "depletionRate",
+                        "alertMetaData": [
+                            {
+                                "key": "sensorId",
+                                "value": "000032B9"
+                            },
+                            {
+                                "key": "kegId",
+                                "value": "6053"
+                            },
+                            {
+                                "key": "locationId",
+                                "value": "10078"
+                            },
+                            {
+                                "key": "velocity",
+                                "value": "slow"
+                            },
+                            {
+                                "key": "percentChange",
+                                "value": "10"
+                            },
+                            {
+                                "key": "intervalMinutes",
+                                "value": "2040"
+                            }
+                        ],
+                        "sentTimestamp": 1411525657,
+                        "readTimestamp": 0
+                    },
+                    {
+                        "id": 3,
+                        "title": "Keg Lost Notification",
+                        "description": "Your keg of Sam Addams Oktoberfest at Joe's Crab Shack has not been seen in 10 days.",
+                        "read": false,
+                        "alertType": "kegLost",
+                        "alertMetaData": [
+                            {
+                                "key": "sensorId",
+                                "value": "000032B9"
+                            },
+                            {
+                                "key": "kegId",
+                                "value": "6053"
+                            },
+                            {
+                                "key": "locationId",
+                                "value": "10078"
+                            },
+                            {
+                                "key": "daysSinceLastSeen",
+                                "value": "10"
+                            }
+                        ],
+                        "sentTimestamp": 1401525657,
+                        "readTimestamp": 0
+                    },
+                    {
+                        "id": 4,
+                        "title": "Keg Weight Anomaly Notification",
+                        "description": "Your keg of Sam Addams Oktoberfest at Joe's Crab Shack has changed its weight quickly.",
+                        "read": false,
+                        "alertType": "kegWeightAnomaly",
+                        "alertMetaData": [
+                            {
+                                "key": "sensorId",
+                                "value": "000032B9"
+                            },
+                            {
+                                "key": "kegId",
+                                "value": "6053"
+                            },
+                            {
+                                "key": "locationId",
+                                "value": "10078"
+                            }
+                        ],
+                        "sentTimestamp": 1201525657,
+                        "readTimestamp": 0
+                    },
+                    {
+                        "id": 5,
+                        "title": "iKeg System Alert",
+                        "description": "The iKeg system is going to be down for maintenance from Sunday August 1st at 2pm until 4pm.",
+                        "read": false,
+                        "alertType": "system",
+                        "alertMetaData": [
+                            {
+                                "key": "detailsUrl",
+                                "value": "http://support.steadyserv.com/article/234"
+                            }
+                        ],
+                        "sentTimestamp": 1301525657,
+                        "readTimestamp": 0
+                    }                    
+                ]
+            }
+        }
+        
+### Read all Messages [PATCH]
+
++ Parameters
+    + userId (required, number, `1`) ... Numeric `id` of the user to get alerts for.
+
++ Request (application/json)
+
+        { 
+            "read": true 
+        }
+        
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {
+                "recordsUpdated": 5
+            }
+        }    
+        
+        
+        
+# Group Roles
+        
+## Message Collection [/role]
+
+### List all the roles and their permissions [GET]
+
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {
+                "pageNumber": 1,
+                "pageSize": 50,
+                "totalResults": 15,
+                "totalPages": 1,
+                "results": [
+                    {
+                        "key": "franchiseOwner",
+                        "type": "franchise",
+                        "name": "Franchise Owner",
+                        "description": "Access for a franchise owner",
+                        "rules": [
+                            {
+                                "resource": "kegFreshnessAlert",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "kegFreshnessAlert",
+                                "privilege": "write"
+                            },
+                            {
+                                "resource": "depeletionLimitAlert",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "depeletionLimitAlert",
+                                "privilege": "write"
+                            },
+                            {
+                                "resource": "kegWeightAnomalyAlert",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "kegWeightAnomalyAlert",
+                                "privilege": "write"
+                            },
+                            {
+                                "resource": "systemAlert",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "systemAlert",
+                                "privilege": "write"
+                            },
+                            {
+                                "resource": "team",
+                                "privilege": "all"
+                            },
+                            {
+                                "resource": "location",
+                                "privilege": "all"
+                            }
+                        ]
+                    },
+                    {
+                        "key": "franchiseViewer",
+                        "type": "franchise",
+                        "name": "Franchise Viewer",
+                        "description": "Access for a franchise viewer",
+                        "rules": [
+                            {
+                                "resource": "team",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "location",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "kegFreshnessAlert",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "kegFreshnessAlert",
+                                "privilege": "write"
+                            },
+                            {
+                                "resource": "depeletionLimitAlert",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "depeletionLimitAlert",
+                                "privilege": "write"
+                            },
+                            {
+                                "resource": "kegWeightAnomalyAlert",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "kegWeightAnomalyAlert",
+                                "privilege": "write"
+                            },
+                            {
+                                "resource": "systemAlert",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "systemAlert",
+                                "privilege": "write"
+                            }
+                        ]
+                    },
+                    {
+                        "key": "distributorOwner",
+                        "type": "distributor",
+                        "name": "Distributor Owner",
+                        "description": "Access for the distributor owner",
+                        "rules": [
+                            {
+                                "resource": "team",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "team",
+                                "privilege": "invite"
+                            },
+                            {
+                                "resource": "team",
+                                "privilege": "revoke"
+                            },
+                            {
+                                "resource": "location",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "systemAlert",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "systemAlert",
+                                "privilege": "write"
+                            }
+                        ]
+                    },
+                    {
+                        "key": "distributorViewer",
+                        "type": "distributor",
+                        "name": "Distributor Viewer",
+                        "description": "Access for a distributor viewer",
+                        "rules": [
+                            {
+                                "resource": "team",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "location",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "systemAlert",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "systemAlert",
+                                "privilege": "write"
+                            }
+                        ]
+                    },
+                    {
+                        "key": "breweryOwner",
+                        "type": "brewery",
+                        "name": "Brewery Owner",
+                        "description": "Access for a brewery owner",
+                        "rules": [
+                            {
+                                "resource": "team",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "team",
+                                "privilege": "revoke"
+                            },
+                            {
+                                "resource": "team",
+                                "privilege": "invite"
+                            },
+                            {
+                                "resource": "location",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "systemAlert",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "systemAlert",
+                                "privilege": "write"
+                            }
+                        ]
+                    },
+                    {
+                        "key": "breweryViewer",
+                        "type": "brewery",
+                        "name": "Brewery Viewer",
+                        "description": "Access for a brewery viewer",
+                        "rules": [
+                            {
+                                "resource": "team",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "location",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "systemAlert",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "systemAlert",
+                                "privilege": "write"
+                            }
+                        ]
+                    },
+                    {
+                        "key": "franchiseLocationOwner",
+                        "type": "franchiseLocation",
+                        "name": "Franchise Location Owner",
+                        "description": "Access for a franchise location owner",
+                        "rules": [
+                            {
+                                "resource": "team",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "team",
+                                "privilege": "invite"
+                            },
+                            {
+                                "resource": "team",
+                                "privilege": "revoke"
+                            },
+                            {
+                                "resource": "location",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "kegFreshnessAlert",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "kegFreshnessAlert",
+                                "privilege": "write"
+                            },
+                            {
+                                "resource": "depeletionLimitAlert",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "depeletionLimitAlert",
+                                "privilege": "write"
+                            },
+                            {
+                                "resource": "kegWeightAnomalyAlert",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "kegWeightAnomalyAlert",
+                                "privilege": "write"
+                            },
+                            {
+                                "resource": "systemAlert",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "systemAlert",
+                                "privilege": "write"
+                            }
+                        ]
+                    },
+                    {
+                        "key": "franchiseLocationViewer",
+                        "type": "franchiseLocation",
+                        "name": "Franchise Location Viewer",
+                        "description": "Access for a franchise location viewer",
+                        "rules": [
+                            {
+                                "resource": "team",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "location",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "kegFreshnessAlert",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "kegFreshnessAlert",
+                                "privilege": "write"
+                            },
+                            {
+                                "resource": "depeletionLimitAlert",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "depeletionLimitAlert",
+                                "privilege": "write"
+                            },
+                            {
+                                "resource": "kegWeightAnomalyAlert",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "kegWeightAnomalyAlert",
+                                "privilege": "write"
+                            },
+                            {
+                                "resource": "systemAlert",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "systemAlert",
+                                "privilege": "write"
+                            }
+                        ]
+                    },
+                    {
+                        "key": "distributorLocationOwner",
+                        "type": "distributorLocation",
+                        "name": "Distributor Location Owner",
+                        "description": "Access for a distributor location owner",
+                        "rules": [
+                            {
+                                "resource": "team",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "team",
+                                "privilege": "invite"
+                            },
+                            {
+                                "resource": "team",
+                                "privilege": "revoke"
+                            },
+                            {
+                                "resource": "location",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "kegFreshnessAlert",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "kegFreshnessAlert",
+                                "privilege": "write"
+                            },
+                            {
+                                "resource": "depeletionLimitAlert",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "depeletionLimitAlert",
+                                "privilege": "write"
+                            },
+                            {
+                                "resource": "kegWeightAnomalyAlert",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "kegWeightAnomalyAlert",
+                                "privilege": "write"
+                            },
+                            {
+                                "resource": "systemAlert",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "systemAlert",
+                                "privilege": "write"
+                            }
+                        ]
+                    },
+                    {
+                        "key": "distributorLocationViewer",
+                        "type": "distributorLocation",
+                        "name": "Distributor Location Viewer",
+                        "description": "Access for a distributor location viewer",
+                        "rules": [
+                            {
+                                "resource": "team",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "kegFreshnessAlert",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "kegFreshnessAlert",
+                                "privilege": "write"
+                            },
+                            {
+                                "resource": "depeletionLimitAlert",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "depeletionLimitAlert",
+                                "privilege": "write"
+                            },
+                            {
+                                "resource": "kegWeightAnomalyAlert",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "kegWeightAnomalyAlert",
+                                "privilege": "write"
+                            },
+                            {
+                                "resource": "systemAlert",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "systemAlert",
+                                "privilege": "write"
+                            }
+                        ]
+                    },
+                    {
+                        "key": "breweryDistributorOwner",
+                        "type": "breweryDistributor",
+                        "name": "Brewery Distributor Owner",
+                        "description": "Access for a brewery distributor owner",
+                        "rules": [
+                            {
+                                "resource": "team",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "team",
+                                "privilege": "invite"
+                            },
+                            {
+                                "resource": "team",
+                                "privilege": "revoke"
+                            },
+                            {
+                                "resource": "systemAlert",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "systemAlert",
+                                "privilege": "write"
+                            }
+                        ]
+                    },
+                    {
+                        "key": "breweryDistributorViewer",
+                        "type": "breweryDistributor",
+                        "name": "Brewery Distributor Viewer",
+                        "description": "Access for a brewery distributor viewer",
+                        "rules": [
+                            {
+                                "resource": "team",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "systemAlert",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "systemAlert",
+                                "privilege": "write"
+                            }
+                        ]
+                    },
+                    {
+                        "key": "franchiseSales",
+                        "type": "franchise",
+                        "name": "Franchise Sales Rep",
+                        "description": "Access for a franchise sales rep",
+                        "rules": [
+                            {
+                                "resource": "team",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "location",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "systemAlert",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "systemAlert",
+                                "privilege": "write"
+                            }
+                        ]
+                    },
+                    {
+                        "key": "distributorSales",
+                        "type": "distributor",
+                        "name": "Distributor Sales Rep",
+                        "description": "Access for a distributor sales rep",
+                        "rules": [
+                            {
+                                "resource": "team",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "location",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "systemAlert",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "systemAlert",
+                                "privilege": "write"
+                            }
+                        ]
+                    },
+                    {
+                        "key": "franchiseLocationManager",
+                        "type": "franchiseLocation",
+                        "name": "Franchise Location Manager",
+                        "description": "Access for a franchise location manager",
+                        "rules": [
+                            {
+                                "resource": "team",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "team",
+                                "privilege": "invite"
+                            },
+                            {
+                                "resource": "team",
+                                "privilege": "revoke"
+                            },
+                            {
+                                "resource": "location",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "kegFreshnessAlert",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "kegFreshnessAlert",
+                                "privilege": "write"
+                            },
+                            {
+                                "resource": "depeletionLimitAlert",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "depeletionLimitAlert",
+                                "privilege": "write"
+                            },
+                            {
+                                "resource": "kegWeightAnomalyAlert",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "kegWeightAnomalyAlert",
+                                "privilege": "write"
+                            },
+                            {
+                                "resource": "systemAlert",
+                                "privilege": "read"
+                            },
+                            {
+                                "resource": "systemAlert",
+                                "privilege": "write"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+        
+# Group Franchise
+Get Franchise **iKeg API**
+
+## Franchise Collection [/franchise/{?franchiseName}{?address1}{?address2}{?city}{?postalCode}{?stateAbbreviation}{?countryAbbreviation}{?pageSize}{?pageNumber}{?statusId}{?isDeleted}]
+
+### Get franchises [GET]
+
++ Parameters
+    + franchiseName (optional, string, `Flat 12 Bierwerks`) ... String of the franchise name.
+    + address1 (optional, string, `123 Anywhere`) ... String of address line 1.
+    + address2 (optional, string, `Suite 500`) ... String of address line 2.
+    + city (optional, string, `Indianapolis`) ... String of city
+    + postalCode (optional, string, `46202`) ... String of the postal code.
+    + stateAbbreviation (optional, string, `IN`) ... String of the state abbreviation.
+    + countryAbbreviation (optional, string, `USA`) ... String of the country abbreviation.
+    + pageSize (optional, number, `25`) ... The number of resources to return per page.
+    + pageNumber (optional, number, `1`) ... The page number to return.
+    + statusId (optional, string, `PARTY_ENABLED`) ... Status of the franchise.
+    + isDeleted (optional, string `Y|N') ... Used to query deleted records.
+    
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {
+                "pageNumber": 1,
+                "pageSize": 10,
+                "totalResults": 5,
+                "totalPages": 1,
+                "results": [
+                    {
+                        "franchiseId": 10041,
+                        "franchiseName": "Pots and Pans Productions",
+                        "address1": "3855 East 96th St",
+                        "address2": "Suite 200",
+                        "city": "Indianapolis",
+                        "postalCode": "46260",
+                        "stateId": 184,
+                        "stateAbbreviation": "IN",
+                        "state": "Indiana",
+                        "countryId": 232,
+                        "countryAbbreviation": "USA",
+                        "country": "United States",
+                        "createTimestamp": 1366023297000,
+                        "updateTimestamp": 1415884404000,
+                        "statusId": "PARTY_DISABLED",
+                        "isDeleted": "N",
+                        "createdByUser": {
+                            "firstName": "John",
+                            "lastName": "Admin",
+                            "userId": 13011,
+                            "email": "admin@steadyserv.net",
+                            "mobile": "3175555555",
+                            "password": "false",
+                            "createdDate": 1366786314000,
+                            "userRoleId": "STS_EMPLOYEE",
+                            "timeZone": "America/New_York",
+                            "createdBy": "12584",
+                            "tosUpdated": false,
+                            "enabled": true,
+                            "deleted": false,
+                            "resetPassword": false,
+                            "videoWatched": true
+                        },
+                        "updatedByUser": {
+                            "firstName": "John",
+                            "lastName": "Admin",
+                            "userId": 13011,
+                            "email": "admin@steadyserv.net",
+                            "mobile": "3175555555",
+                            "password": "false",
+                            "createdDate": 1366786314000,
+                            "userRoleId": "STS_EMPLOYEE",
+                            "timeZone": "America/New_York",
+                            "createdBy": "12584",
+                            "tosUpdated": false,
+                            "enabled": true,
+                            "deleted": false,
+                            "resetPassword": false,
+                            "videoWatched": true
+                        }
+                    },   
+                    {
+                        "franchiseId": 10042,
+                        "franchiseName": "Lux Restaurants",
+                        "address1": "156 E Market St",
+                        "city": "Indianapolis",
+                        "postalCode": "46204",
+                        "stateId": 184,
+                        "stateAbbreviation": "IN",
+                        "state": "Indiana",
+                        "countryId": 232,
+                        "countryAbbreviation": "USA",
+                        "country": "United States",
+                        "createTimestamp": 1366023297000,
+                        "updateTimestamp": 1366023297000,
+                        "statusId": "PARTY_ENABLED",
+                        "isDeleted": "N"
+                    }
+                ]
+            }
+        }
+
+## Specific Franchise [/franchise/{franchiseId}]
+
+### Get a franchise [GET]
+
++ Parameters
+    + franchiseId (required, number, `1`) ... Numeric `id` of the franchise.
+
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "Returning franchise by ID "
+            },
+            "response": {
+                "franchiseId": 10041,
+                "franchiseName": "Pots and Pans Productions",
+                "address1": "3855 East 96th St",
+                "city": "Indianapolis",
+                "postalCode": "46260",
+                "stateId": 184,
+                "stateAbbreviation": "IN",
+                "state": "Indiana",
+                "countryId": 232,
+                "countryAbbreviation": "USA",
+                "country": "United States",
+                "createTimestamp": 1366023297000,
+                "updateTimestamp": 1415884404000,
+                "statusId": "PARTY_DISABLED",
+                "isDeleted": "N",
+                "createdByUser": {
+                    "firstName": "John",
+                    "lastName": "Admin",
+                    "userId": 13011,
+                    "email": "admin@steadyserv.net",
+                    "mobile": "3175555555",
+                    "password": "false",
+                    "createdDate": 1366786314000,
+                    "userRoleId": "STS_EMPLOYEE",
+                    "timeZone": "America/New_York",
+                    "createdBy": "12584",
+                    "tosUpdated": false,
+                    "enabled": true,
+                    "deleted": false,
+                    "resetPassword": false,
+                    "videoWatched": true
+                },
+                "updatedByUser": {
+                    "firstName": "John",
+                    "lastName": "Admin",
+                    "userId": 13011,
+                    "email": "admin@steadyserv.net",
+                    "mobile": "3175555555",
+                    "password": "false",
+                    "createdDate": 1366786314000,
+                    "userRoleId": "STS_EMPLOYEE",
+                    "timeZone": "America/New_York",
+                    "createdBy": "12584",
+                    "tosUpdated": false,
+                    "enabled": true,
+                    "deleted": false,
+                    "resetPassword": false,
+                    "videoWatched": true
+                }
+            }
+        }
+        
+# Group Franchise - User
+Get Franchise **iKeg API**
+
+## Franchise User Collection [/franchise/{franchiseId}/user]
+
+### Get franchise users [GET]
+
++ Parameters
+    + franchiseId (required, number, `25`) ... The ID of the franchise
+   
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {
+                "pageNumber": 1,
+                "pageSize": 50,
+                "totalResults": 3,
+                "totalPages": 1,
+                "results": [
+                    {
+                        "id": 1,
+                        "firstName": "Joe",
+                        "lastName": "User",
+                        "emailAddress": "joe@steadyserv.com",
+                        "mobileNumber": "444-335-2342",
+                        "timezone": "America/New_York",
+                        "role": {
+                            "key": "member",
+                            "type": "application",
+                            "name": "Member"
+                        },
+                        "loginActions": [
+                            {
+                                "action": "changePassword"
+                            }
+                        ],
+                        "access": {
+                            "franchises": [
+                                {
+                                    "franchise": {
+                                        "id": 10367,
+                                        "name": "Ale Emporium"
+                                    },
+                                    "role": {
+                                        "key": "franchiseMember",
+                                        "type": "franchise",
+                                        "name": "Franchise Member"
+                                    },
+                                    "locations": [
+                                        {
+                                            "location": {
+                                                "id": 10112,
+                                                "name": "Ale Emporium"
+                                            },
+                                            "role": {
+                                                "key": "franchiseLocationManager",
+                                                "type": "franchiseLocation",
+                                                "name": "Franchise Location Manager"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ],
+                            "distributors": [],
+                            "breweries": []
+                        }   
+                    },
+                    {
+                        "id": 2,
+                        "firstName": "Frank",
+                        "lastName": "Guy",
+                        "emailAddress": "frank@steadyserv.com",
+                        "mobileNumber": "444-423-9999",
+                        "timezone": "America/New_York",
+                        "role": {
+                            "key": "member",
+                            "name": "Member",
+                            "type": "application"
+                        },
+                        "loginActions": [
+                            {
+                                "action": "changePassword"
+                            }
+                        ],
+                        "access": {
+                            "franchises": [
+                                {
+                                    "franchise": {
+                                        "id": 10367,
+                                        "name": "Ale Emporium"
+                                    },
+                                    "role": {
+                                        "key": "franchiseOwner",
+                                        "type": "franchise",
+                                        "name": "Franchise Owner"
+                                    },
+                                    "locations": []
+                                }
+                            ],
+                            "distributors": [],
+                            "breweries": []
+                        }   
+                    }                    
+                ]
+            }
+        } 
+        
+# Group Franchise - Location User
+Get Franchise **iKeg API**
+
+## Franchise Location User Collection [/franchise/{franchiseId}/location/{locationId}/user]
+
+### Get franchise location users [GET]
+
++ Parameters
+    + franchiseId (required, number, `25`) ... The ID of the franchise
+    + locationId (required, number, `25`) ... The ID of the franchise location
+   
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {
+                "pageNumber": 1,
+                "pageSize": 50,
+                "totalResults": 1,
+                "totalPages": 1,
+                "results": [
+                    {
+                        "id": 1,
+                        "firstName": "Joe",
+                        "lastName": "User",
+                        "emailAddress": "joe@steadyserv.com",
+                        "mobileNumber": "444-335-2342",
+                        "timezone": "America/New_York",
+                        "role": {
+                            "key": "employee",
+                            "type": "application"
+                        },
+                        "loginActions": [
+                            {
+                                "action": "changePassword"
+                            }
+                        ],
+                        "access": {
+                            "franchises": [
+                                {
+                                    "franchise": {
+                                        "id": 1,
+                                        "name": "My Franchise"
+                                    },
+                                    "role": {
+                                        "key": "franchiseMember",
+                                        "type": "franchise"
+                                    },
+                                    "locations": [
+                                        {
+                                            "location": {
+                                                "id": 10112,
+                                                "name": "Ale Emporium"
+                                            },
+                                            "role": {
+                                                "key": "franchiseLocationManager",
+                                                "type": "franchiseLocation"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ],
+                            "distributors": [],
+                            "breweries": []
+                        }   
+                    }                      
+                ]
+            }
+        }         
+           
+# Group Franchise - Invites
+Get Franchise **iKeg API**
+
+## Franchise Invitation Collection [/franchise/{franchiseId}/invite]
+
+### Get franchise invites [GET]
+
++ Parameters
+    + franchiseId (required, number, `25`) ... The ID of the franchise
+   
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {
+                "pageNumber": 1,
+                "pageSize": 50,
+                "totalResults": 1,
+                "totalPages": 1,
+                "results": [
+                    {
+                        "id": 1,
+                        "code": "ase3dse",
+                        "status": "pending",
+                        "emailAddress": "you@there.net",
+                        "mobileNumber": "234-252-3524",
+                        "sentTimestamp": 1415908468000,
+                        "expirationTimestamp": 1415909468000,
+                        "processedTimestamp": 0,
+                        "roleAssignments": [
+                            {
+                                "attribute": {
+                                    "id": 10012,
+                                    "name": "Ale Emporium"
+                                },
+                                "role": {
+                                    "key": "franchiseOwner",
+                                    "type": "franchise",
+                                    "name": "Franchise Owner"
+                                }
+                            }
+                        ],
+                        "invitedByUser": {
+                            "id": 2,
+                            "firstName": "joe",
+                            "lastName": "bob",
+                            "emailAddress": "joe@bob.net",
+                            "mobileNumber": "232-532-5225",
+                            "timezone": "America/New_York",
+                            "role": {
+                                "key": "member",
+                                "type": "application",
+                                "name": "Member"
+                            }
+                        }
+                    }                       
+                ]
+            }
+        }         
+         
+                         
+# Group Location
+Get Location **iKeg API**
+
+## Location Collection [/location/{?locationName}{?address1}{?address2}{?postalCode}{?stateAbbreviation}{?countryAbbreviation}{?pageSize}{?pageNumber}]
+
+### Get locations [GET]
+
++ Parameters
+    + locationName (optional, string, `Flat 12 Bierwerks`) ... String of the location name.
+    + address1 (optional, string, `123 Anywhere`) ... String of address line 1.
+    + address2 (optional, string, `Suite 500`) ... String of address line 2.
+    + postalCode (optional, string, `46202`) ... String of the postal code.
+    + stateAbbreviation (optional, string, `IN`) ... String of the state abbreviation.
+    + countryAbbreviation (optional, string, `USA`) ... String of the country abbreviation.
+    + pageSize (optional, number, `25`) ... The number of resources to return per page.
+    + pageNumber (optional, number, `1`) ... The page number to return.
+    
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {
+                "pageNumber": 1,
+                "pageSize": 10,
+                "totalResults": 5,
+                "totalPages": 1,
+                "results": [
+                    {
+                        "locationId": 10112,
+                        "locationName": "Ale Emporium",
+                        "franchiseId": 10367,
+                        "franchiseName": "Ale Emporium",
+                        "address1": "8617 Allisonville Rd",
+                        "city": "Indianapolis",
+                        "postalCode": "46250",
+                        "state": "Indiana",
+                        "stateAbbreviation": "IN",
+                        "country": "United States",
+                        "countryAbbreviation": "USA",
+                        "locationTimeZone": "America/New_York",
+                        "createTimestamp": 1411738610,
+                        "updateTimestamp": 0,
+                        "createdByUser": {
+                            "firstName": "iOS",
+                            "lastName": "Admin",
+                            "emailAddress": "iosadmin@steadyserv.net"
+                        },
+                        "discountType": "STS_FCLUB",
+                        "statusId": "ENABLED",
+                        "isDeleted": "N"
+                    },   
+                    {
+                        "locationId": 10110,
+                        "locationName": "Cobblestone Grill",
+                        "franchiseId": 10340,
+                        "franchiseName": "Cobblestone Grill",
+                        "address1": "8617 Allisonville Rd",
+                        "city": "Indianapolis",
+                        "postalCode": "46250",
+                        "state": "Indiana",
+                        "stateAbbreviation": "IN",
+                        "country": "United States",
+                        "countryAbbreviation": "USA",
+                        "locationTimeZone": "America/New_York",
+                        "createTimestamp": 1411738610,
+                        "updateTimestamp": 0,
+                        "createdByUser": {
+                            "firstName": "iOS",
+                            "lastName": "Admin",
+                            "emailAddress": "iosadmin@steadyserv.net"
+                        },
+                        "discountType": "STS_FCLUB",
+                        "statusId": "ENABLED",
+                        "isDeleted": "N"
+                    }              
+                ]
+            }
+        }
+        
+
+## Specific Location [/location/{locationId}]
+
+### Get a location [GET]
+
++ Parameters
+    + locationId (required, number, `1`) ... Numeric `id` of the location.
+
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "Returning location by ID "
+            },
+            "response": {
+                "locationId": 10010,
+                "locationName": "Broad Ripple Tavern",
+                "franchiseId": 10042,
+                "franchiseName": "Lux Restaurants",
+                "address1": "745 Broad Ripple Ave",
+                "city": "Indianapolis",
+                "postalCode": "46220",
+                "stateAbbreviation": "IN",
+                "state": "Indiana",
+                "stateId": 184,
+                "countryAbbreviation": "USA",
+                "country": "United States",
+                "countryId": 232,
+                "locationTimeZone": "America/New_York",
+                "createTimestamp": 1366096498000,
+                "updateTimestamp": 1415903134000,
+                "statusId": "ENABLED",
+                "isDeleted": "N",
+                "createdByUser": {
+                    "firstName": "John",
+                    "lastName": "Admin",
+                    "userId": 13011,
+                    "email": "admin@steadyserv.net",
+                    "mobile": "3175555555",
+                    "userRoleId": "STS_EMPLOYEE",
+                    "timeZone": "America/New_York",
+                    "tosUpdated": false,
+                    "enabled": true,
+                    "videoWatched": true
+                },
+                "updatedByUser": {
+                    "firstName": "John",
+                    "lastName": "Admin",
+                    "userId": 13011,
+                    "email": "admin@steadyserv.net",
+                    "mobile": "3175555555",
+                    "userRoleId": "STS_EMPLOYEE",
+                    "timeZone": "America/New_York",
+                    "tosUpdated": false,
+                    "enabled": true,
+                    "videoWatched": true
+                }
+            }
+        }
+
+# Group Brewers
+Get brewers **iKeg API**
+
+## Brewer Collection [/brewer/{?brewerName}{?address1}{?address2}{?postalCode}{?stateAbbreviation}{?countryAbbreviation}{?pageSize}{?pageNumber}]
+
+### Get brewers [GET]
+
++ Parameters
+    + brewerName (optional, string, `Flat 12 Bierwerks`) ... String of the brewery name.
+    + address1 (optional, string, `123 Anywhere`) ... String of address line 1.
+    + address2 (optional, string, `Suite 500`) ... String of address line 2.
+    + postalCode (optional, string, `46202`) ... String of the postal code.
+    + stateAbbreviation (optional, string, `IN`) ... String of the state abbreviation.
+    + countryAbbreviation (optional, string, `USA`) ... String of the country abbreviation.
+    + pageSize (optional, number, `25`) ... The number of resources to return per page.
+    + pageNumber (optional, number, `1`) ... The page number to return.
+    
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {
+                "pageNumber": 1,
+                "pageSize": 10,
+                "totalResults": 5,
+                "totalPages": 1,
+                "results": [
+                    {
+                        "brewerId": "10014",
+                        "brewerName": "Flat 12 Bierwerks",
+                        "address1": "414 N Dorman St",
+                        "address2": "Suite 200",
+                        "city": "Indianapolis"
+                        "postalCode": "46202",
+                        "state": "Indiana",
+                        "stateAbbreviation": "IN",
+                        "country": "United States",
+                        "countryAbbreviation": "USA",
+                        "statusId": "PARTY_ENABLED",
+                        "isDeleted": "Y",
+                        "createdByUser": {
+                            "firstName": "iOS",
+                            "lastName": "Admin",
+                            "emailAddress": "iosadmin@steadyserv.net"
+                        },
+                        "createTimestamp": 1411738610,
+                        "updateTimestamp": 0
+                    },   
+                    {
+                        "brewerId": "10034",
+                        "brewerName": "Sun King Brewery",
+                        "address1": "135 N College",
+                        "city": "Indianapolis"
+                        "postalCode": "46202",
+                        "state": "Indiana",
+                        "stateAbbreviation": "IN",
+                        "country": "United States",
+                        "countryAbbreviation": "USA",
+                        "statusId": "PARTY_ENABLED",
+                        "isDeleted": "Y",
+                        "createdByUser": {
+                            "firstName": "iOS",
+                            "lastName": "Admin",
+                            "emailAddress": "iosadmin@steadyserv.net"
+                        },
+                        "createTimestamp": 1411738610,
+                        "updateTimestamp": 0
+                    }              
+                ]
+            }
+        }
+        
+## Specific Brewer [/brewers/{brewerId}]
+
+### Get a brewer [GET]
+
++ Parameters
+    + brewerId (required, string, `1`) ... String `id` of the brewer.
+
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "Brewer"
+            },
+            "response": {
+                "brewerId": "05irfI",
+                "brewerName": "Summit Brewing Company",
+                "address1": "910 Montreal Circle",
+                "city": "Saint Paul",
+                "postalCode": "55102",
+                "stateId": 192,
+                "stateAbbreviation": "MN",
+                "state": "Minnesota",
+                "countryId": 232,
+                "countryAbbreviation": "USA",
+                "country": "United States",
+                "statusId": "PARTY_ENABLED",
+                "isDeleted": "N",
+                "createdByUser": {
+                    "email": "brewerydb@ofbiz.com"
+                },
+                "updatedByUser": {
+                    "email": "brewerydb@ofbiz.com"
+                },
+                "createTimestamp": 1405935142000,
+                "updateTimestamp": 1405937469000
+            }
+        }
+        
+# Group Distributor
+Get Distributor **iKeg API**
+
+## Distributor Collection [/distributor/{?distributorName}{?address1}{?address2}{?postalCode}{?stateAbbreviation}{?countryAbbreviation}{?pageSize}{?pageNumber}]
+
+### Get distributors [GET]
+
++ Parameters
+    + distributorName (optional, string, `Flat 12 Bierwerks`) ... String of the distributor name.
+    + address1 (optional, string, `123 Anywhere`) ... String of address line 1.
+    + address2 (optional, string, `Suite 500`) ... String of address line 2.
+    + postalCode (optional, string, `46202`) ... String of the postal code.
+    + stateAbbreviation (optional, string, `IN`) ... String of the state abbreviation.
+    + countryAbbreviation (optional, string, `USA`) ... String of the country abbreviation.
+    + pageSize (optional, number, `25`) ... The number of resources to return per page.
+    + pageNumber (optional, number, `1`) ... The page number to return.
+    
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "OK"
+            },
+            "response": {
+                "pageNumber": 1,
+                "pageSize": 10,
+                "totalResults": 5,
+                "totalPages": 1,
+                "results": [
+                    {
+                        "distributorId": "10040",
+                        "distributorName": "Monarch Beverage",
+                        "address1": "9347 Pendleton Pike",
+                        "city": "Indianapolis",
+                        "postalCode": "46236",
+                        "state": "Indiana",
+                        "stateAbbreviation": "IN",
+                        "country": "United States",
+                        "countryAbbreviation": "USA",
+                        "statusId": "PARTY_ENABLED",
+                        "isDeleted": "N",
+                        "createdByUser": {
+                            "firstName": "iOS",
+                            "lastName": "Admin",
+                            "emailAddress": "iosadmin@steadyserv.net"
+                        },
+                        "createTimestamp": 1411738610,
+                        "updateTimestamp": 0
+                    },   
+                    {
+                        "distributorId": "10070",
+                        "distributorName": "Maple Leaf Distributing",
+                        "address1": "1200 Industrial Parkway",
+                        "city": "Columbus",
+                        "postalCode": "47201",
+                        "state": "Indiana",
+                        "stateAbbreviation": "IN",
+                        "country": "United States",
+                        "countryAbbreviation": "USA",
+                        "statusId": "PARTY_ENABLED",
+                        "isDeleted": "N",
+                        "createdByUser": {
+                            "firstName": "iOS",
+                            "lastName": "Admin",
+                            "emailAddress": "iosadmin@steadyserv.net"
+                        },
+                        "createTimestamp": 1411738610,
+                        "updateTimestamp": 0
+                    }
+                ]
+            }
+        }
+
+## Specific Distributor [/distributor/{distributorId}]
+
+### Get a distributor [GET]
+
++ Parameters
+    + distributorId (required, number, `10040`) ... Numeric `id` of the distributor.
+
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "Distributor Details By Distributor ID"
+            },
+            "response": {
+                "distributorId": 10040,
+                "distributorName": "Monarch Beverage",
+                "address1": "9347 Pendleton Pike",
+                "city": "Indianapolis",
+                "postalCode": "46236",
+                "stateId": 184,
+                "stateAbbreviation": "IN",
+                "state": "Indiana",
+                "countryId": 232,
+                "countryAbbreviation": "USA",
+                "country": "United States",
+                "statusId": "PARTY_ENABLED",
+                "isDeleted": "N",
+                "createdByUser": {
+                    "firstName": "John",
+                    "lastName": "Admin",
+                    "userId": 13011,
+                    "email": "admin@steadyserv.net",
+                    "mobile": "3175555555",
+                    "userRoleId": "STS_EMPLOYEE",
+                    "timeZone": "America/New_York",
+                    "tosUpdated": false,
+                    "enabled": true,
+                    "videoWatched": true
+                },
+                "updatedByUser": {
+                    "firstName": "John",
+                    "lastName": "Admin",
+                    "userId": 13011,
+                    "email": "admin@steadyserv.net",
+                    "mobile": "3175555555",
+                    "userRoleId": "STS_EMPLOYEE",
+                    "timeZone": "America/New_York",
+                    "tosUpdated": false,
+                    "enabled": true,
+                    "videoWatched": true
+                },
+                "createTimestamp": 1366023296000,
+                "updateTimestamp": 1366023296000
+            }
+        }
+                
