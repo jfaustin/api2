@@ -3973,4 +3973,56 @@ Get Distributor **iKeg API**
                 "updateTimestamp": 1366023296000
             }
         }
+        
+# Group Product
+Get Product **iKeg API**      
+
+## Specific Product [/product/{productId}]
+
+### Get a product [GET]
+
++ Parameters
+    + productId (required, string, `10040`) ... String `id` of the product.
+
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "Product Details By Product ID"
+            },
+            "response": {
+                "productId":"xc22rew",
+                "productName":"Amber Ale",
+                "abv":5.1,
+                "ibu":26,
+                "isDeleted":"N",
+                "statusId":"ENABLED",
+                "createdDate":2208988800000,
+                "updatedDate":2208988800000,
+                "brewer":{  
+                    "brewId":123,
+                    "brewerName":"Abita Brewing Company"
+                },
+                "style":{  
+                    "styleId":12,
+                    "styleName":"Pale Ale"
+                },
+                "variantProduct":[  
+                    {  
+                        "variantProductId":10478,
+                        "kegStyle":{  
+                            "kegStyleId":12,
+                            "kegStyleName":"1/2 barrel aluminum"
+                        },
+                        "uom":{  
+                            "uomId":"SS_Hbbl",
+                            "uomName":"1/2 barrel"
+                        },
+                        "isDeleted":"N",
+                        "statusId":"ENABLED"
+                    }
+                ]
+            }
+        }
                 
