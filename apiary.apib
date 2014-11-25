@@ -4025,4 +4025,49 @@ Get Product **iKeg API**
                 ]
             }
         }
+        
+## Specific Variant Product [/product/{productId}/variant/{variantProductId}]
+
+### Get a variant product [GET]
+
++ Parameters
+    + productId (required, string, `xc22rew`) ... String `id` of the product.
+    + variantProductId (required, string, `10478`) ... String `id` of the variant product.
+
+
++ Response 200 (application/json)
+
+        {
+            "meta": {
+                "code": 200,
+                "message": "Variant product Details By Product ID"
+            },
+            "response": {
+                "productId":"xc22rew",
+                "variantProductId":10478,
+                "productName":"Amber Ale",
+                "kegStyle":{  
+                    "kegStyleId":12,
+                    "kegStyleName":"1/2 barrel aluminum"
+                },
+                "uom":{  
+                    "uomId":"SS_Hbbl",
+                    "uomName":"1/2 barrel"
+                },
+                "abv":5.1,
+                "ibu":26,
+                "isDeleted":"N",
+                "statusId":"ENABLED",
+                "createdDate":2208988800000,
+                "updatedDate":2208988800000,
+                "brewer":{  
+                    "brewId":123,
+                    "brewerName":"Abita Brewing Company"
+                },
+                "style":{  
+                    "styleId":12,
+                    "styleName":"Pale Ale"
+                }
+            }
+        }        
                 
