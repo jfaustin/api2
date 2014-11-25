@@ -3992,32 +3992,34 @@ Get Product **iKeg API**
                 "message": "Product Details By Product ID"
             },
             "response": {
-                "productId":"xc22rew",
-                "productName":"Amber Ale",
+                "id":"xc22rew",
+                "name":"Amber Ale",
                 "abv":5.1,
                 "ibu":26,
                 "isDeleted":"N",
                 "statusId":"ENABLED",
                 "createdDate":2208988800000,
                 "updatedDate":2208988800000,
-                "brewer":{  
-                    "brewId":123,
-                    "brewerName":"Abita Brewing Company"
-                },
+                "brewer":[
+                    {  
+                        "id":123,
+                        "name":"Abita Brewing Company"
+                    }
+                ],
                 "style":{  
-                    "styleId":12,
-                    "styleName":"Pale Ale"
+                    "id":12,
+                    "name":"Pale Ale"
                 },
                 "variantProduct":[  
                     {  
-                        "variantProductId":10478,
+                        "id":10478,
                         "kegStyle":{  
-                            "kegStyleId":12,
-                            "kegStyleName":"1/2 barrel aluminum"
+                            "id":12,
+                            "name":"1/2 barrel aluminum"
                         },
                         "uom":{  
-                            "uomId":"SS_Hbbl",
-                            "uomName":"1/2 barrel"
+                            "id":"SS_Hbbl",
+                            "name":"1/2 barrel"
                         },
                         "isDeleted":"N",
                         "statusId":"ENABLED"
@@ -4043,16 +4045,16 @@ Get Product **iKeg API**
                 "message": "Variant product Details By Product ID"
             },
             "response": {
-                "productId":"xc22rew",
-                "variantProductId":10478,
-                "productName":"Amber Ale",
+                "id":10478,
+                "virtualProductId":"xc22rew",
+                "name":"Amber Ale",
                 "kegStyle":{  
-                    "kegStyleId":12,
-                    "kegStyleName":"1/2 barrel aluminum"
+                    "id":12,
+                    "name":"1/2 barrel aluminum"
                 },
                 "uom":{  
-                    "uomId":"SS_Hbbl",
-                    "uomName":"1/2 barrel"
+                    "id":"SS_Hbbl",
+                    "name":"1/2 barrel"
                 },
                 "abv":5.1,
                 "ibu":26,
@@ -4061,12 +4063,12 @@ Get Product **iKeg API**
                 "createdDate":2208988800000,
                 "updatedDate":2208988800000,
                 "brewer":{  
-                    "brewId":123,
-                    "brewerName":"Abita Brewing Company"
+                    "id":123,
+                    "name":"Abita Brewing Company"
                 },
                 "style":{  
-                    "styleId":12,
-                    "styleName":"Pale Ale"
+                    "id":12,
+                    "name":"Pale Ale"
                 }
             }
         }        
